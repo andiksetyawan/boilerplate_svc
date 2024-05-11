@@ -1,7 +1,6 @@
 volumes:
   postgres:
   jaeger:
-
 services:
   postgres:
     image: postgres:16
@@ -15,6 +14,11 @@ services:
       - ./migrations/post.sql:/docker-entrypoint-initdb.d/post.sql:ro
     ports:
       - 5432:5432
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "testing", "-U", "testing" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
   jaeger:
     image: jaegertracing/all-in-one:latest
     restart: unless-stopped
@@ -32,7 +36,7 @@ services:
     image: boilerplate_svc:latest
     depends_on:
       postgres:
-        condition: service_started
+        condition: service_healthy
     restart: unless-stopped
     environment:
       DB_NAME: testing
@@ -41,7 +45,7 @@ services:
       DB_HOST: postgres
       DB_PORT: 5432
       SERVICE_PORT: 8888
-      SERVICE_NAME: service-test
+      SERVICE_NAME: boilerplate_svc
       OTEL_JAEGER_ENDPOINT: http://jaeger:14268/api/traces
       JWT_SIGNING_KEY: 123
     volumes:
