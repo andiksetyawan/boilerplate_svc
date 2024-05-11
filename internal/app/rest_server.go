@@ -37,7 +37,6 @@ func NewRestServer(ctx context.Context) (*RestServer, error) {
 	handlers := handler.NewHandler(postHandler)
 
 	// setup opentelemetry
-	var closers []func(context.Context) error
 	otel, err := opentelemetry.New(
 		opentelemetry.WithServiceName(rsc.Config.ServiceName),
 		opentelemetry.WithLogger(rsc.Log),
@@ -72,7 +71,6 @@ func NewRestServer(ctx context.Context) (*RestServer, error) {
 		httpserver:    httpServer,
 		opentelemetry: otel,
 		logger:        rsc.Log,
-		shutdownFn:    closers,
 	}, nil
 }
 

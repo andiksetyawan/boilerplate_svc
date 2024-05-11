@@ -29,6 +29,7 @@ services:
       - 14268:14268
   boilerplate_svc:
     build: .
+    image: boilerplate_svc:latest
     depends_on:
       postgres:
         condition: service_started

@@ -17,14 +17,21 @@ test:
 mock-generator:
 	./mock_gen.sh
 
-container-start:
+docker-build:
+	docker build -t $(IMAGE_NAME):$(IMAGE_TAG) .
+	docker tag $(IMAGE_NAME):$(IMAGE_TAG) $(IMAGE_NAME):latest
+
+docker-push:
+	docker push $(IMAGE_NAME):latest
+
+docker-compose-start:
 	docker compose up
 
-container-stop:
+docker-compose-stop:
 	docker compose down
 
-container-purge:
+docker-compose-purge:
 	docker compose -f docker-compose.yml down --volumes
 
-container-clean:
+docker-compose-clean:
 	docker compose down --volumes
