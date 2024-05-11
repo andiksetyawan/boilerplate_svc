@@ -5,6 +5,7 @@ import (
 
 	"github.com/andiksetyawan/boilerplate_svc/internal/delivery/rest/handler/post"
 	"github.com/andiksetyawan/boilerplate_svc/internal/resource"
+	usecasemock "github.com/andiksetyawan/boilerplate_svc/mocks/usecase"
 	"github.com/andiksetyawan/boilerplate_svc/pkg/httpserver"
 	"github.com/andiksetyawan/boilerplate_svc/pkg/response"
 	logmock "github.com/andiksetyawan/log/mocks"
