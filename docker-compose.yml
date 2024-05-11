@@ -1,0 +1,49 @@
+volumes:
+  postgres:
+  jaeger:
+
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: testing
+      POSTGRES_PASSWORD: testing
+      POSTGRES_DB: testing
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - ./migrations/post.sql:/docker-entrypoint-initdb.d/post.sql:ro
+    ports:
+      - 5432:5432
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    restart: unless-stopped
+    environment:
+      COLLECTOR_OTLP_ENABLED: true
+    volumes:
+      - jaeger:/var/lib/jaeger/data
+    ports:
+      - 16686:16686
+      - 4317:4317
+      - 4318:4318
+      - 14268:14268
+  boilerplate_svc:
+    build: .
+    depends_on:
+      postgres:
+        condition: service_started
+    restart: unless-stopped
+    environment:
+      DB_NAME: testing
+      DB_USERNAME: testing
+      DB_PASSWORD: testing
+      DB_HOST: postgres
+      DB_PORT: 5432
+      SERVICE_PORT: 8888
+      SERVICE_NAME: service-test
+      OTEL_JAEGER_ENDPOINT: http://jaeger:14268/api/traces
+      JWT_SIGNING_KEY: 123
+    volumes:
+      - ./.local:/local
+    ports:
+      - 8888:8888
