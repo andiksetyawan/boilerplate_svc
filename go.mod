@@ -5,7 +5,7 @@ go 1.22.2
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.2
 	github.com/andiksetyawan/config v0.0.2
-	github.com/andiksetyawan/database v0.0.1
+	github.com/andiksetyawan/database v0.0.3
 	github.com/andiksetyawan/log v0.0.2
 	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/google/uuid v1.6.0

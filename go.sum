@@ -4,8 +4,8 @@ github.com/DATA-DOG/go-sqlmock v1.5.2 h1:OcvFkGmslmlZibjAjaHm3L//6LiuBgolP7Oputl
 github.com/DATA-DOG/go-sqlmock v1.5.2/go.mod h1:88MAG/4G7SMwSE3CeA0ZKzrT5CiOU3OJ+JlNzwDqpNU=
 github.com/andiksetyawan/config v0.0.2 h1:T0er5hgN9MSyzW6Zf4VPOMxPq/KD2BZO+PV+yZT/Un4=
 github.com/andiksetyawan/config v0.0.2/go.mod h1:9tXewm9BHlK/zcH2HF8zbZ+ScZ2XuI0szFXJGuNfn9I=
-github.com/andiksetyawan/database v0.0.1 h1:PgtDXNXepyB2klMpkHWDmSK6pZTw43DOMoWCnhGtAaE=
-github.com/andiksetyawan/database v0.0.1/go.mod h1:nu68SeQIvOrRZAJhEYWGZNTLWTIlT2eKhVoL7pmH0iY=
+github.com/andiksetyawan/database v0.0.3 h1:R/HXXwNkMktBNVVnZhOL5inBdqpurPfHrvKfC5RLLEc=
+github.com/andiksetyawan/database v0.0.3/go.mod h1:nu68SeQIvOrRZAJhEYWGZNTLWTIlT2eKhVoL7pmH0iY=
 github.com/andiksetyawan/log v0.0.2 h1:x9T4wA2rNfRYvOm7KGaubT6X38aErCK7i8pNAWOMNm8=
 github.com/andiksetyawan/log v0.0.2/go.mod h1:BL8QFYvwN0YOHHhP/w1Ncc4D8qwuT7EHaRI+KqxGDCA=
 github.com/caarlos0/env/v11 v11.0.0 h1:ZIlkOjuL3xoZS0kmUJlF74j2Qj8GMOq3CDLX/Viak8Q=
